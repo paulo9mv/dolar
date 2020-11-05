@@ -1,0 +1,38 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.cellContainer {
+  width: 30%;
+  float: left;
+}
+
+.button {
+  appearance: none;
+  background: none;
+  font-size: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  outline: none;
+  border: 2px solid transparent;
+  color: rgb(0, 0, 0);
+  padding-bottom: 4px;
+  cursor: pointer;
+  background-color: rgba(255,255,102,0.9);
+  border-radius: 2px;
+  transition: all 0.15s;
+}
+
+.button:hover, .button:focus {
+  border: 2px solid rgba(255, 255, 102, 0.4);
+}
+
+.button:active {
+  background-color: rgba(255, 255, 102, 0.2);
+}
