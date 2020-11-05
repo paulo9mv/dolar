@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AppThunk, RootState } from "./store";
+import { AppThunk } from "./store";
 
 const initialState = {
 

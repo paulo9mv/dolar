@@ -3,7 +3,7 @@ import { Content } from "./Content";
 
 export function MainPage() {
   return (
-    <div>
+    <div style={{width: '80%'}}>
       <Content />
     </div>
   );
