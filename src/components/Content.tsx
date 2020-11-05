@@ -1,14 +1,17 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { fetchApi } from "../store/reducer";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchApi, selectData } from "../store/reducer";
 import { Row, Col } from "antd";
 
 import 'antd/dist/antd.css';
 
 export function Content() {
   const dispatch = useDispatch();
+  const data = useSelector(selectData);
 
-  dispatch(fetchApi())
+  useEffect(() => {
+    dispatch(fetchApi())
+  }, [dispatch])
 
   return (
     <Row >
@@ -19,7 +22,7 @@ export function Content() {
         U$ 1
       </Col>
       <Col span={8}>
-        R$ 8.98
+        R$ {data.value}
       </Col>
     </Row>
   );
