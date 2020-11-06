@@ -4,6 +4,7 @@ import { fetchApi, selectData } from "../store/reducer";
 import { Row, Col, Input, Radio } from "antd";
 
 import 'antd/dist/antd.css';
+import { ExchangeForm } from "./ExchangeForm";
 
 export function Content() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export function Content() {
 
   return (
     <div>
+      <ExchangeForm />
     <Row >
       <Col span={8}>
         Cotação do dia
