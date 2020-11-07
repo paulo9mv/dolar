@@ -58,7 +58,7 @@ export const fetchApi = (): AppThunk => (dispatch) => {
 };
 
 export const calculateExchange = (value: IExchangeFormData): AppThunk => (dispatch) => {
-  const dolarSemImposto = value.dolar ? value.dolar : 0
+  const dolarSemImposto = value.dolar ? parseFloat(value.dolar.toString()) : 0
   const taxa = value.taxa ? (value.taxa / 100) : 0
 
   const dolarComImposto = dolarSemImposto + (dolarSemImposto * taxa)
