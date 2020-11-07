@@ -11,7 +11,7 @@ const FooterMenu = () => {
           flex: 1,
         }}
       >
-        Footer
+        <span style={{ fontSize: 20 }}>{`💻`} Made by Paulo Viana</span>
       </div>
     </div>
   );
