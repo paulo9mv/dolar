@@ -1,9 +1,11 @@
 import { Button, Form, Input, Radio } from 'antd'
 import { Formik } from 'formik'
 import React, { FunctionComponent } from 'react'
+import { useDispatch } from 'react-redux'
 import * as yup from 'yup'
+import { calculateExchange } from '../store/reducer'
 
-interface IExchangeFormData {
+export interface IExchangeFormData {
   dolar?: number
   taxa?: number
   iof?: boolean
@@ -11,18 +13,11 @@ interface IExchangeFormData {
 
 export const ExchangeForm: FunctionComponent = () => {
 
-  async function onSubmit(values: IExchangeFormData) {
-    console.log(values)
-  }
+  const dispatch = useDispatch();
 
-  yup.setLocale({
-    mixed: {
-      default: 'Não é válido',
-    },
-    number: {
-      min: 'Deve ser maior que ${min}',
-    },
-  });
+  async function onSubmit(values: IExchangeFormData) {
+    dispatch(calculateExchange(values))
+  }
 
   const exchangeFormValidator = yup.object().shape({
     dolar: yup.number()
@@ -46,7 +41,6 @@ export const ExchangeForm: FunctionComponent = () => {
       onSubmit={onSubmit}
       validationSchema={exchangeFormValidator}
     >{({values, setFieldValue, errors, touched, handleSubmit}) => {
-      console.log(values, errors, touched)
         return (
           <Form
             layout='vertical'

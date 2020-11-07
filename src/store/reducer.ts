@@ -1,12 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IExchangeFormData } from "../components/ExchangeForm";
 import { AppThunk, RootState } from "./store";
 
 interface ApiState {
-  dolar: number
+  dolarEmReal: number
+  dolarSemImposto: number
+  dolarComImposto: number
+  realSemImposto: number
+  realComImposto: number
+  iof: number
 }
 
 const initialState: ApiState = {
-  dolar: NaN
+  dolarEmReal: 0,
+  dolarSemImposto: 0,
+  dolarComImposto: 0,
+  realSemImposto: 0,
+  realComImposto: 0,
+  iof: 0
 };
 
 //Update state
@@ -17,11 +28,22 @@ export const apiSlice = createSlice({
     setNewValues: (state, action) => {
       try {
         const resJson = action.payload.res;
-        state.dolar = resJson.USD.ask;
+        state.dolarEmReal = parseFloat(resJson.USD.ask);
       } catch (e) {
         console.error(e)
       }
     },
+    setValues: (state, action) => {
+      const payload = action.payload
+
+      state.iof = action.payload.iof
+      state.dolarSemImposto = payload.dolarSemImposto
+      state.dolarComImposto = payload.dolarComImposto
+      
+      state.realSemImposto = state.dolarComImposto * state.dolarEmReal
+      state.realComImposto = state.realSemImposto * (1 + payload.iof)
+      console.log('payload', payload)
+    }
   },
 });
 
@@ -35,14 +57,32 @@ export const fetchApi = (): AppThunk => (dispatch) => {
     });
 };
 
+export const calculateExchange = (value: IExchangeFormData): AppThunk => (dispatch) => {
+  const dolarSemImposto = value.dolar ? value.dolar : 0
+  const taxa = value.taxa ? (value.taxa / 100) : 0
+
+  const dolarComImposto = dolarSemImposto + (dolarSemImposto * taxa)
+  console.log(dolarSemImposto, dolarSemImposto * taxa)
+
+  const iof = value.iof ? (1.1/100) : (6.4/100)
+
+  dispatch(setValues({dolarSemImposto, taxa, dolarComImposto, iof}))
+}
+
 export const {
-  setNewValues
+  setNewValues,
+  setValues
 } = apiSlice.actions;
 
 //Get data
 export const selectData = (state: RootState) => {
   return {
-    value: state.api.dolar
+    dolarEmReal: state.api.dolarEmReal,
+    dolarSemImposto: state.api.dolarSemImposto,
+    dolarComImposto: state.api.dolarComImposto,
+    realSemImposto: state.api.realSemImposto,
+    realComImposto: state.api.realComImposto,
+    iof: state.api.iof
   };
 };
 
