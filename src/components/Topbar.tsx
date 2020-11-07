@@ -19,7 +19,8 @@ const TopBar = () => {
 
   return (
     <div style={topBarStyle}>
-      TopBar
+      <span>{`💱`}</span>
+      Dólar - Real<span>{`💲`}</span>
     </div>
   );
 };
