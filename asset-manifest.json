@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dolar/static/css/main.6e485fdb.chunk.css",
-    "main.js": "/dolar/static/js/main.4521e603.chunk.js",
-    "main.js.map": "/dolar/static/js/main.4521e603.chunk.js.map",
+    "main.js": "/dolar/static/js/main.99a4bd1b.chunk.js",
+    "main.js.map": "/dolar/static/js/main.99a4bd1b.chunk.js.map",
     "runtime-main.js": "/dolar/static/js/runtime-main.52c0e0b8.js",
     "runtime-main.js.map": "/dolar/static/js/runtime-main.52c0e0b8.js.map",
     "static/css/2.cbe6aa73.chunk.css": "/dolar/static/css/2.cbe6aa73.chunk.css",
     "static/js/2.734ab4cf.chunk.js": "/dolar/static/js/2.734ab4cf.chunk.js",
     "static/js/2.734ab4cf.chunk.js.map": "/dolar/static/js/2.734ab4cf.chunk.js.map",
     "index.html": "/dolar/index.html",
-    "precache-manifest.328131172e7838e67e7fb5b634c8c3d9.js": "/dolar/precache-manifest.328131172e7838e67e7fb5b634c8c3d9.js",
+    "precache-manifest.5f01c12160bd8b63c2150b904a60072a.js": "/dolar/precache-manifest.5f01c12160bd8b63c2150b904a60072a.js",
     "service-worker.js": "/dolar/service-worker.js",
     "static/css/2.cbe6aa73.chunk.css.map": "/dolar/static/css/2.cbe6aa73.chunk.css.map",
     "static/css/main.6e485fdb.chunk.css.map": "/dolar/static/css/main.6e485fdb.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.cbe6aa73.chunk.css",
     "static/js/2.734ab4cf.chunk.js",
     "static/css/main.6e485fdb.chunk.css",
-    "static/js/main.4521e603.chunk.js"
+    "static/js/main.99a4bd1b.chunk.js"
   ]
 }
