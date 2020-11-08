@@ -1,11 +1,13 @@
 import { Col, Row } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchApi, selectData } from "../../store/reducer";
+import { fetchApi, selectData, selectStatus } from "../../store/reducer";
 import { ExchangeForm } from "../../components/ExchangeForm";
 
 import 'antd/dist/antd.css';
 import './MainPage.css'
+import Content from "../../components/Content";
+import StandardInformation from "../../components/StandardInformation";
 
 const styles = {
   rowBaseline: {
@@ -24,6 +26,7 @@ const styles = {
 export function MainPage() {
   const dispatch = useDispatch();
   const data = useSelector(selectData);
+  const status = useSelector(selectStatus)
 
   console.log(data)
   console.log(data.dolarSemImposto)
@@ -33,7 +36,7 @@ export function MainPage() {
   }, [dispatch]);
 
   return (
-    <div style={{ width: '40%', backgroundColor: '#F0F000' }}>
+    <div className='mainPage' style={{ width: '60%', height: '700px'}}>
       <Row>
         <Col span={8} offset={8}>Cotação do dia</Col>
       </Row>
@@ -43,18 +46,19 @@ export function MainPage() {
         {`↔️`}
         <div style={styles.bigFont}>{data.dolarEmReal.toFixed(2)}</div>BRL
       </div>
+      <div style={styles.smallFont}>
+        Última atualização: 10 Nov 2010
+      </div>
       <Row>
         <Col span={8} offset={8}>
           <ExchangeForm />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Row>IOF: {data.iof * 100}%</Row>
-          <Row>Dólar sem imposto: {data.dolarSemImposto.toFixed(2)}</Row>
-          <Row>Dolar com imposto: {data.dolarComImposto.toFixed(2)}</Row>
-          <Row>Real sem imposto: {data.realSemImposto.toFixed(2)}</Row>
-          <Row>Real com imposto: {data.realComImposto.toFixed(2)}</Row>
+      <Row justify="center">
+        <Col style={{backgroundColor: '#FF0000'}}>
+          {
+            status.hasSubmittedData ? <Content data={data}/> : <StandardInformation isWaiting={status.isWaiting} />
+          }
         </Col>
       </Row>
     </div>

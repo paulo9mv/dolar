@@ -9,6 +9,10 @@ interface ApiState {
   realSemImposto: number
   realComImposto: number
   iof: number
+  hasSubmittedData: boolean
+  hasError: boolean
+  isFetching: boolean
+  isWaiting: boolean
 }
 
 const initialState: ApiState = {
@@ -17,7 +21,11 @@ const initialState: ApiState = {
   dolarComImposto: 0,
   realSemImposto: 0,
   realComImposto: 0,
-  iof: 0
+  iof: 0,
+  hasSubmittedData: false,
+  hasError: false,
+  isFetching: false,
+  isWaiting: false
 };
 
 //Update state
@@ -29,8 +37,10 @@ export const apiSlice = createSlice({
       try {
         const resJson = action.payload.res;
         state.dolarEmReal = parseFloat(resJson.USD.ask);
+
+        state.hasError = false;
       } catch (e) {
-        console.error(e)
+        state.hasError = true;
       }
     },
     setValues: (state, action) => {
@@ -42,19 +52,27 @@ export const apiSlice = createSlice({
       
       state.realSemImposto = state.dolarComImposto * state.dolarEmReal
       state.realComImposto = state.realSemImposto * (1 + payload.iof)
-      console.log('payload', payload)
+
+      state.isWaiting = true;
+    },
+    setFetching: (state, action) => {
+      state.isFetching = true;
+    },
+    setSubmitted: (state, action) => {
+      state.hasSubmittedData = true
+      state.isWaiting = false;
     }
   },
 });
 
 //Async functions
 export const fetchApi = (): AppThunk => (dispatch) => {
+  dispatch(setFetching(true))
   fetch("https://economia.awesomeapi.com.br/all/USD-BRL")
     .then((res) => res.json())
     .then((res) => dispatch(setNewValues({res})))
-    .catch(function (error) {
-      console.log(error.message);
-    });
+    .catch(e => console.log(e))
+    .finally(() => dispatch(setFetching(false)));
 };
 
 export const calculateExchange = (value: IExchangeFormData): AppThunk => (dispatch) => {
@@ -62,16 +80,20 @@ export const calculateExchange = (value: IExchangeFormData): AppThunk => (dispat
   const taxa = value.taxa ? (value.taxa / 100) : 0
 
   const dolarComImposto = dolarSemImposto + (dolarSemImposto * taxa)
-  console.log(dolarSemImposto, dolarSemImposto * taxa)
 
   const iof = value.iof ? (1.1/100) : (6.4/100)
 
   dispatch(setValues({dolarSemImposto, taxa, dolarComImposto, iof}))
+  setTimeout(function() {
+    dispatch(setSubmitted({}))
+  }, 1000)
 }
 
 export const {
   setNewValues,
-  setValues
+  setValues,
+  setFetching,
+  setSubmitted
 } = apiSlice.actions;
 
 //Get data
@@ -85,5 +107,13 @@ export const selectData = (state: RootState) => {
     iof: state.api.iof
   };
 };
+
+export const selectStatus = (state: RootState) => {
+  return {
+    hasError: state.api.hasError,
+    hasSubmittedData: state.api.hasSubmittedData,
+    isWaiting: state.api.isWaiting
+  }
+}
 
 export default apiSlice.reducer;

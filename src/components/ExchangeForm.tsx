@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { calculateExchange } from '../store/reducer'
 import { InfoCircleOutlined } from '@ant-design/icons';
 
+import './ExchangeForm.css'
 export interface IExchangeFormData {
   dolar?: number
   taxa?: number
@@ -52,6 +53,7 @@ export const ExchangeForm: FunctionComponent = () => {
             validateStatus={
               errors.dolar && touched.dolar ? 'error' : undefined
             }
+            className='teste'
             help={touched.dolar && errors.dolar}>
               <Input
                 addonBefore="U$"
@@ -75,7 +77,7 @@ export const ExchangeForm: FunctionComponent = () => {
             </Form.Item>
             <Form.Item
               label='Forma de pagamento'
-              tooltip={{ title: 'Cartão: 6,4% IOF. Dinheiro: 1,1% IOF.', icon: <InfoCircleOutlined /> }}>
+              tooltip={{ title: 'Cartão: 6,4% IOF. Dinheiro: 1,1% IOF.', icon: <InfoCircleOutlined style={{color: '#FF0000'}}/> }}>
               <Radio.Group
                 onChange={e => setFieldValue('iof', e.target.value)}
                 value={values.iof}

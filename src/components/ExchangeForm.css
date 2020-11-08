@@ -1,0 +1,6 @@
+.ant-form-item-label > label,
+.ant-radio-wrapper,
+.ant-form-item-label > label .ant-form-item-tooltip {
+    color: antiquewhite !important;
+}
+
