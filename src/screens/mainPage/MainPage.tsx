@@ -34,11 +34,11 @@ export function MainPage() {
         Última atualização: {status.ultimaAtualizacao}
       </div>
       <Row>
-        <Col span={8} offset={8}>
+        <Col md={{offset: 8, span: 8}} xs={{offset: 6, span: 12}} offset={6}>
           <ExchangeForm />
         </Col>
       </Row>
-      <Row justify="center" gutter={[4, 36]}>
+      <Row justify='center' gutter={[4, 36]}>
         <Col>
           {status.hasSubmittedData ?
             <Content data={data} isLoading={status.isLoading}/> :

@@ -17,3 +17,10 @@
 .update-time {
     font-size: 1.6rem;
 }
+
+@media (max-width: 500px){
+    .mainPage {
+        width: 100%;
+        height: 80%;
+    }
+}
