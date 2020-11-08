@@ -3,6 +3,9 @@ import React from "react";
 
 import './Content.css'
 
+/**
+ * Exibido caso haja dados para serem exibidos
+ */
 const Content = props => {
     const data = props.data
     const isLoading = props.isLoading

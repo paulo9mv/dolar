@@ -5,6 +5,9 @@ import image from '../../assets/img/robot_error.svg'; // Tell webpack this JS fi
 import 'antd/dist/antd.css';
 import './Error.css'
 
+/**
+ * Exibido em caso de erro
+ */
 export const Error: FunctionComponent = () => {
   return (
     <div className='error'>

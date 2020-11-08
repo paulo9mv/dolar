@@ -3,6 +3,9 @@ import React from "react";
 
 import './DefaultInfo.css'
 
+/**
+  Exibido enquanto não há dados para serem exibidos
+ */
 export const DefaultInfo = props => {
   const isLoading = props.isLoading;
 

@@ -83,14 +83,14 @@ export const fetchApi = (): AppThunk => (dispatch) => {
 
 export const calculateExchange = (value: IExchangeFormData): AppThunk => (dispatch) => {
   const dolarSemImposto = value.dolar ? parseFloat(value.dolar) : 0
-
   const taxa = value.taxa ? (parseFloat(value.taxa) / 100) : 0
-
   const dolarComImposto = dolarSemImposto + (dolarSemImposto * taxa)
-
   const iof = value.iof ? (1.1/100) : (6.4/100)
 
+  // Seta os valores de acordo com o cálculo
   dispatch(setValues({dolarSemImposto, taxa, dolarComImposto, iof}))
+
+  // Adiciona timing para exibir o spinner
   setTimeout(function() {
     dispatch(setSubmitted({}))
   }, 300)
@@ -104,7 +104,7 @@ export const {
   setError
 } = apiSlice.actions;
 
-//Get data
+// Getter de dados sobre os valores da aplicação
 export const selectData = (state: RootState) => {
   return {
     dolarEmReal: state.api.dolarEmReal,
@@ -116,6 +116,7 @@ export const selectData = (state: RootState) => {
   };
 };
 
+// Getter de dados sobre o estado da aplicação
 export const selectStatus = (state: RootState) => {
   return {
     ultimaAtualizacao: state.api.ultimaAtualizacao,

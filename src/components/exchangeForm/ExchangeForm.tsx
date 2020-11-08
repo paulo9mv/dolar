@@ -23,6 +23,9 @@ const ExchangeForm: FunctionComponent = () => {
     dispatch(calculateExchange(values))
   }
 
+  /**
+   * Validator com validação para positivo, required e número com vírgula
+   */
   const exchangeFormValidator = yup.object().shape({
     dolar: yup.number()
       .typeError('Por favor, informe um valor')
