@@ -1,6 +1,7 @@
 # Conversão de dólares (U$) para reais (R$) :moneybag:
 
 Este é um teste para Desenvolvedor Frontend na [Stone Co](https://www.stone.co/br/).
+
 O projeto possui responsividade, atende os requisitos propostos e está disponível em [https://paulo9mv.github.io/dolar/](https://paulo9mv.github.io/dolar/)
 
 ## Para executar
