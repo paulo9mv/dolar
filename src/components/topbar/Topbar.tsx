@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import CSS from "csstype";
 
-const TopBar = () => {
+const TopBar: FunctionComponent = () => {
   const topBarStyle: CSS.Properties = {
     position: "fixed",
     top: 0,

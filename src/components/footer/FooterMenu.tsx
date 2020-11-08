@@ -1,6 +1,6 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, FunctionComponent } from "react";
 
-const FooterMenu = () => {
+const FooterMenu: FunctionComponent = () => {
   return (
     <div style={styles}>
       <div

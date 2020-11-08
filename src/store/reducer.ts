@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IExchangeFormData } from "../components/ExchangeForm";
+import { IExchangeFormData } from "../components/exchangeForm/ExchangeForm";
 import { AppThunk, RootState } from "./store";
 
 interface ApiState {

@@ -2,12 +2,13 @@ import { Col, Row } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchApi, selectData, selectStatus } from "../../store/reducer";
-import { ExchangeForm } from "../../components/ExchangeForm";
+
+import ExchangeForm from "../../components/exchangeForm/ExchangeForm";
+import Content from "../../components/content/Content";
+import StandardInformation from "../../components/standardInformation/StandardInformation";
 
 import 'antd/dist/antd.css';
 import './MainPage.css'
-import Content from "../../components/Content";
-import StandardInformation from "../../components/StandardInformation";
 
 const styles = {
   rowBaseline: {

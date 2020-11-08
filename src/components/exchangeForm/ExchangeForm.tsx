@@ -3,18 +3,18 @@ import { Formik } from 'formik'
 import React, { FunctionComponent } from 'react'
 import { useDispatch } from 'react-redux'
 import * as yup from 'yup'
-import { calculateExchange } from '../store/reducer'
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { calculateExchange } from '../../store/reducer'
+import { InfoCircleOutlined } from '@ant-design/icons'
 
 import './ExchangeForm.css'
+
 export interface IExchangeFormData {
   dolar?: number
   taxa?: number
   iof?: boolean
 }
 
-export const ExchangeForm: FunctionComponent = () => {
-
+const ExchangeForm: FunctionComponent = () => {
   const dispatch = useDispatch();
 
   async function onSubmit(values: IExchangeFormData) {
@@ -99,3 +99,5 @@ export const ExchangeForm: FunctionComponent = () => {
     </Formik>
   )
 }
+
+export default ExchangeForm;
