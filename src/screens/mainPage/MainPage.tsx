@@ -55,9 +55,9 @@ export function MainPage() {
         </Col>
       </Row>
       <Row justify="center">
-        <Col style={{backgroundColor: '#FF0000'}}>
+        <Col>
           {
-            status.hasSubmittedData ? <Content data={data}/> : <StandardInformation isWaiting={status.isWaiting} />
+            status.hasSubmittedData ? <Content data={data} isWaiting={status.isWaiting}/> : <StandardInformation isWaiting={status.isWaiting} />
           }
         </Col>
       </Row>

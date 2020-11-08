@@ -1,11 +1,12 @@
-import { Row } from "antd";
+import { Row, Spin } from "antd";
 import React from "react";
 
 const Content = props => {
 
     const data = props.data
+    const isWaiting = props.isWaiting
 
-    return (
+    return isWaiting ? <Spin/> : (
         <div>
         <Row>IOF: {data.iof * 100}%</Row>
         <Row>Dólar sem imposto: {data.dolarSemImposto.toFixed(2)}</Row>

@@ -86,7 +86,7 @@ export const calculateExchange = (value: IExchangeFormData): AppThunk => (dispat
   dispatch(setValues({dolarSemImposto, taxa, dolarComImposto, iof}))
   setTimeout(function() {
     dispatch(setSubmitted({}))
-  }, 1000)
+  }, 300)
 }
 
 export const {

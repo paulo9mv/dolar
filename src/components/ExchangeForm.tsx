@@ -77,7 +77,7 @@ export const ExchangeForm: FunctionComponent = () => {
             </Form.Item>
             <Form.Item
               label='Forma de pagamento'
-              tooltip={{ title: 'Cartão: 6,4% IOF. Dinheiro: 1,1% IOF.', icon: <InfoCircleOutlined style={{color: '#FF0000'}}/> }}>
+              tooltip={{ title: 'Cartão: 6,4% IOF. Dinheiro: 1,1% IOF.', icon: <InfoCircleOutlined /> }}>
               <Radio.Group
                 onChange={e => setFieldValue('iof', e.target.value)}
                 value={values.iof}
