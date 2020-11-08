@@ -64,6 +64,9 @@ export const apiSlice = createSlice({
     setSubmitted: (state, action) => {
       state.hasSubmittedData = true
       state.isLoading = false;
+    },
+    setError: (state, action) => {
+      state.hasError = action.payload;
     }
   },
 });
@@ -74,7 +77,7 @@ export const fetchApi = (): AppThunk => (dispatch) => {
   fetch("https://economia.awesomeapi.com.br/all/USD-BRL")
     .then((res) => res.json())
     .then((res) => dispatch(setNewValues({res})))
-    .catch(e => console.log(e))
+    .catch(e => dispatch(setError(true)))
     .finally(() => dispatch(setFetching(false)));
 };
 
@@ -96,7 +99,8 @@ export const {
   setNewValues,
   setValues,
   setFetching,
-  setSubmitted
+  setSubmitted,
+  setError
 } = apiSlice.actions;
 
 //Get data

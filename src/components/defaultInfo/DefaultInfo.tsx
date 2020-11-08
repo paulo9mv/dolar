@@ -3,7 +3,7 @@ import React from "react";
 
 import './DefaultInfo.css'
 
-const DefaultInfo = props => {
+export const DefaultInfo = props => {
   const isLoading = props.isLoading;
 
   return isLoading ? <Spin size="large"/> : (

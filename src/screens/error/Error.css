@@ -1,0 +1,11 @@
+.error {
+    width: 25%;
+    height: 50%;
+    color: antiquewhite;
+}
+
+@media (max-width: 500px){
+    .error {
+        width: 80%;   
+    }
+}

@@ -1,5 +1,5 @@
 import { Col, Divider, Row } from "antd";
-import React, { useEffect } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchApi, selectData, selectStatus } from "../../store/reducer";
 
@@ -10,7 +10,7 @@ import DefaultInfo from "../../components/defaultInfo/DefaultInfo";
 import 'antd/dist/antd.css';
 import './MainPage.css'
 
-export function MainPage() {
+export const MainPage: FunctionComponent = () => {
   const dispatch = useDispatch()
   const data = useSelector(selectData)
   const status = useSelector(selectStatus)
