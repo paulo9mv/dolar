@@ -5,24 +5,10 @@ import { fetchApi, selectData, selectStatus } from "../../store/reducer";
 
 import ExchangeForm from "../../components/exchangeForm/ExchangeForm";
 import Content from "../../components/content/Content";
-import StandardInformation from "../../components/standardInformation/StandardInformation";
+import DefaultInfo from "../../components/defaultInfo/DefaultInfo";
 
 import 'antd/dist/antd.css';
 import './MainPage.css'
-
-const styles = {
-  rowBaseline: {
-    display: "flex",
-    alignItems: "baseline",
-    justifyContent: "center",
-  },
-  smallFont: {
-    fontSize: 16,
-  },
-  bigFont: {
-    fontSize: 40,
-  },
-};
 
 export function MainPage() {
   const dispatch = useDispatch()
@@ -34,17 +20,17 @@ export function MainPage() {
   }, [dispatch]);
 
   return (
-    <div className='mainPage' style={{ width: '60%', height: '700px'}}>
+    <div className='mainPage'>
       <Row>
         <Col span={8} offset={8}>Cotação do dia</Col>
       </Row>
       <div className='baseline'>
-        <div style={styles.bigFont}>1</div>
+        <div>1</div>
         USD
         {`↔️`}
-        <div style={styles.bigFont}>{data.dolarEmReal.toFixed(2)}</div>BRL
+        <div>{data.dolarEmReal.toFixed(2)}</div>BRL
       </div>
-      <div style={styles.smallFont}>
+      <div className='update-time'>
         Última atualização: {status.ultimaAtualizacao}
       </div>
       <Row>
@@ -52,11 +38,11 @@ export function MainPage() {
           <ExchangeForm />
         </Col>
       </Row>
-      <Row justify="center">
+      <Row justify="center" gutter={[4, 36]}>
         <Col>
           {status.hasSubmittedData ?
-            <Content data={data} isWaiting={status.isWaiting}/> :
-            <StandardInformation isWaiting={status.isWaiting} />}
+            <Content data={data} isLoading={status.isLoading}/> :
+            <DefaultInfo isLoading={status.isLoading} />}
         </Col>
       </Row>
     </div>

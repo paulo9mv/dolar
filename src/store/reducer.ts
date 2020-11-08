@@ -13,7 +13,7 @@ interface ApiState {
   hasSubmittedData: boolean
   hasError: boolean
   isFetching: boolean
-  isWaiting: boolean
+  isLoading: boolean
 }
 
 const initialState: ApiState = {
@@ -27,7 +27,7 @@ const initialState: ApiState = {
   hasSubmittedData: false,
   hasError: false,
   isFetching: false,
-  isWaiting: false
+  isLoading: false
 };
 
 //Update state
@@ -56,14 +56,14 @@ export const apiSlice = createSlice({
       state.realSemImposto = state.dolarComImposto * state.dolarEmReal
       state.realComImposto = state.realSemImposto * (1 + payload.iof)
 
-      state.isWaiting = true;
+      state.isLoading = true;
     },
     setFetching: (state, action) => {
       state.isFetching = true;
     },
     setSubmitted: (state, action) => {
       state.hasSubmittedData = true
-      state.isWaiting = false;
+      state.isLoading = false;
     }
   },
 });
@@ -116,7 +116,7 @@ export const selectStatus = (state: RootState) => {
     ultimaAtualizacao: state.api.ultimaAtualizacao,
     hasError: state.api.hasError,
     hasSubmittedData: state.api.hasSubmittedData,
-    isWaiting: state.api.isWaiting
+    isLoading: state.api.isLoading
   }
 }
 

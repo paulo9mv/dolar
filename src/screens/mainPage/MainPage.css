@@ -4,6 +4,16 @@
     justify-content: center;
 }
 
+.baseline > div {
+    font-size: 6rem;
+}
+
 .mainPage {
     color: antiquewhite;
+    width: 60%;
+    height: 700px;
+}
+
+.update-time {
+    font-size: 1.6rem;
 }
