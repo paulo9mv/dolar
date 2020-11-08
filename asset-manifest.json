@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dolar/static/css/main.e5ab5f8a.chunk.css",
+    "main.js": "/dolar/static/js/main.48fcfd2c.chunk.js",
+    "main.js.map": "/dolar/static/js/main.48fcfd2c.chunk.js.map",
+    "runtime-main.js": "/dolar/static/js/runtime-main.f8485cc5.js",
+    "runtime-main.js.map": "/dolar/static/js/runtime-main.f8485cc5.js.map",
+    "static/css/2.cbe6aa73.chunk.css": "/dolar/static/css/2.cbe6aa73.chunk.css",
+    "static/js/2.fbbc213d.chunk.js": "/dolar/static/js/2.fbbc213d.chunk.js",
+    "static/js/2.fbbc213d.chunk.js.map": "/dolar/static/js/2.fbbc213d.chunk.js.map",
+    "index.html": "/dolar/index.html",
+    "precache-manifest.d6a667308d73b7de9d8a3b7d00f09744.js": "/dolar/precache-manifest.d6a667308d73b7de9d8a3b7d00f09744.js",
+    "service-worker.js": "/dolar/service-worker.js",
+    "static/css/2.cbe6aa73.chunk.css.map": "/dolar/static/css/2.cbe6aa73.chunk.css.map",
+    "static/css/main.e5ab5f8a.chunk.css.map": "/dolar/static/css/main.e5ab5f8a.chunk.css.map",
+    "static/js/2.fbbc213d.chunk.js.LICENSE.txt": "/dolar/static/js/2.fbbc213d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f8485cc5.js",
+    "static/css/2.cbe6aa73.chunk.css",
+    "static/js/2.fbbc213d.chunk.js",
+    "static/css/main.e5ab5f8a.chunk.css",
+    "static/js/main.48fcfd2c.chunk.js"
+  ]
+}
