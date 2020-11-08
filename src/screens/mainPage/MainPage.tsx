@@ -1,4 +1,4 @@
-import { Col, Row } from "antd";
+import { Col, Divider, Row } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchApi, selectData, selectStatus } from "../../store/reducer";
@@ -35,7 +35,9 @@ export function MainPage() {
       </div>
       <Row>
         <Col md={{offset: 8, span: 8}} xs={{offset: 6, span: 12}} offset={6}>
+          <Divider className='divider'/>
           <ExchangeForm />
+          <Divider className='divider'/>
         </Col>
       </Row>
       <Row justify='center' gutter={[4, 36]}>

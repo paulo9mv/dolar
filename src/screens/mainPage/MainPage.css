@@ -18,6 +18,10 @@
     font-size: 1.6rem;
 }
 
+.divider {
+    background-color: antiquewhite;
+}
+
 @media (max-width: 500px){
     .mainPage {
         width: 100%;
