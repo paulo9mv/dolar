@@ -1,12 +1,17 @@
 import { Row, Spin } from "antd";
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 import './Content.css'
+
+interface IContentProps {
+    isLoading: boolean
+    data: any
+}
 
 /**
  * Exibido caso haja dados para serem exibidos
  */
-const Content = props => {
+const Content: FunctionComponent<IContentProps> = props => {
     const data = props.data
     const isLoading = props.isLoading
 

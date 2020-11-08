@@ -1,12 +1,16 @@
 import { Col, Spin } from "antd";
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 import './DefaultInfo.css'
+
+interface IDefaultInfoProps {
+  isLoading: boolean
+}
 
 /**
   Exibido enquanto não há dados para serem exibidos
  */
-export const DefaultInfo = props => {
+export const DefaultInfo: FunctionComponent<IDefaultInfoProps> = props => {
   const isLoading = props.isLoading;
 
   return isLoading ? <Spin size="large"/> : (
