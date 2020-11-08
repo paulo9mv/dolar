@@ -9,8 +9,8 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 import './ExchangeForm.css'
 
 export interface IExchangeFormData {
-  dolar?: number
-  taxa?: number
+  dolar?: string
+  taxa?: string
   iof?: boolean
 }
 
@@ -18,16 +18,24 @@ const ExchangeForm: FunctionComponent = () => {
   const dispatch = useDispatch();
 
   async function onSubmit(values: IExchangeFormData) {
+    values.dolar = values.dolar && values.dolar.toString().replace(',','.')
+    values.taxa = values.taxa && values.taxa.toString().replace(',','.')
     dispatch(calculateExchange(values))
   }
 
   const exchangeFormValidator = yup.object().shape({
     dolar: yup.number()
       .typeError('Por favor, informe um valor')
+      .transform((_, value) => {
+        return +value.replace(/,/, '.');
+      })
       .positive('Por favor, informe um valor positivo')
       .required('Por favor, informe o valor do produto'),
     taxa: yup.number()
       .typeError('Por favor, informe uma taxa')
+      .transform((_, value) => {
+        return +value.replace(/,/, '.');
+      })
       .positive('Por favor, informe uma taxa positiva')
       .required('Por favor, informe o valor da taxa'),
   })
