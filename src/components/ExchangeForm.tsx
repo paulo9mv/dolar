@@ -4,6 +4,7 @@ import React, { FunctionComponent } from 'react'
 import { useDispatch } from 'react-redux'
 import * as yup from 'yup'
 import { calculateExchange } from '../store/reducer'
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 export interface IExchangeFormData {
   dolar?: number
@@ -46,7 +47,7 @@ export const ExchangeForm: FunctionComponent = () => {
             layout='vertical'
             onFinish={handleSubmit}
           >
-            <Form.Item label='Dólar'
+            <Form.Item label='Valor do produto'
             required
             validateStatus={
               errors.dolar && touched.dolar ? 'error' : undefined
@@ -54,12 +55,12 @@ export const ExchangeForm: FunctionComponent = () => {
             help={touched.dolar && errors.dolar}>
               <Input
                 addonBefore="U$"
-                placeholder='Valor do produto em dólares'
+                placeholder='Em dólares'
                 value={values.dolar} 
                 onChange={value => setFieldValue('dolar', value.target.value)}
               />
             </Form.Item>
-            <Form.Item label='Taxa do estado'
+            <Form.Item label='Taxa do estado americano'
             required
             validateStatus={
               errors.taxa && touched.taxa ? 'error' : undefined
@@ -72,7 +73,9 @@ export const ExchangeForm: FunctionComponent = () => {
                 onChange={value => setFieldValue('taxa', value.target.value)}
               />
             </Form.Item>
-            <Form.Item label='Forma de pagamento'>
+            <Form.Item
+              label='Forma de pagamento'
+              tooltip={{ title: 'Cartão: 6,4% IOF. Dinheiro: 1,1% IOF.', icon: <InfoCircleOutlined /> }}>
               <Radio.Group
                 onChange={e => setFieldValue('iof', e.target.value)}
                 value={values.iof}

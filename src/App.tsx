@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./App.css";
-import { MainPage } from "./components/MainPage";
+import { MainPage } from "./screens/mainPage/MainPage";
 import TopBar from "./components/Topbar";
 import FooterMenu from "./components/FooterMenu";
 
