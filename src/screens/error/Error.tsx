@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 
-import errorImage from '../../assets/svg/robot_error.svg'; // Tell webpack this JS file uses this image
+import errorImage from '../../assets/svg/robot_error.svg';
 
 import 'antd/dist/antd.css';
-import './Error.css'
+import './Error.css';
 
 /**
  * Exibido em caso de erro
