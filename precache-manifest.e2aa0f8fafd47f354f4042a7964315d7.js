@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "371e7e11ba60414be126976b6bba722f",
+    "revision": "0d21abb5c0523b9e2b6aabefcaee6723",
     "url": "/dolar/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dolar/static/css/2.cbe6aa73.chunk.css"
   },
   {
-    "revision": "a85ebe166095e9e3d51d",
+    "revision": "3473e17ed0ce62551e73",
     "url": "/dolar/static/css/main.7b80950b.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dolar/static/js/2.734ab4cf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a85ebe166095e9e3d51d",
-    "url": "/dolar/static/js/main.ba01d79d.chunk.js"
+    "revision": "3473e17ed0ce62551e73",
+    "url": "/dolar/static/js/main.d98be4a0.chunk.js"
   },
   {
     "revision": "c729c317e5bc74e64888",
