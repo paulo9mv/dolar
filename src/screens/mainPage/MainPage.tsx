@@ -24,12 +24,9 @@ const styles = {
 };
 
 export function MainPage() {
-  const dispatch = useDispatch();
-  const data = useSelector(selectData);
+  const dispatch = useDispatch()
+  const data = useSelector(selectData)
   const status = useSelector(selectStatus)
-
-  console.log(data)
-  console.log(data.dolarSemImposto)
 
   useEffect(() => {
     dispatch(fetchApi());
@@ -47,7 +44,7 @@ export function MainPage() {
         <div style={styles.bigFont}>{data.dolarEmReal.toFixed(2)}</div>BRL
       </div>
       <div style={styles.smallFont}>
-        Última atualização: 10 Nov 2010
+        Última atualização: {status.ultimaAtualizacao}
       </div>
       <Row>
         <Col span={8} offset={8}>
@@ -56,9 +53,9 @@ export function MainPage() {
       </Row>
       <Row justify="center">
         <Col>
-          {
-            status.hasSubmittedData ? <Content data={data} isWaiting={status.isWaiting}/> : <StandardInformation isWaiting={status.isWaiting} />
-          }
+          {status.hasSubmittedData ?
+            <Content data={data} isWaiting={status.isWaiting}/> :
+            <StandardInformation isWaiting={status.isWaiting} />}
         </Col>
       </Row>
     </div>

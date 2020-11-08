@@ -9,6 +9,7 @@ interface ApiState {
   realSemImposto: number
   realComImposto: number
   iof: number
+  ultimaAtualizacao: string
   hasSubmittedData: boolean
   hasError: boolean
   isFetching: boolean
@@ -21,6 +22,7 @@ const initialState: ApiState = {
   dolarComImposto: 0,
   realSemImposto: 0,
   realComImposto: 0,
+  ultimaAtualizacao: '',
   iof: 0,
   hasSubmittedData: false,
   hasError: false,
@@ -37,6 +39,7 @@ export const apiSlice = createSlice({
       try {
         const resJson = action.payload.res;
         state.dolarEmReal = parseFloat(resJson.USD.ask);
+        state.ultimaAtualizacao = resJson.USD.create_date
 
         state.hasError = false;
       } catch (e) {
@@ -110,6 +113,7 @@ export const selectData = (state: RootState) => {
 
 export const selectStatus = (state: RootState) => {
   return {
+    ultimaAtualizacao: state.api.ultimaAtualizacao,
     hasError: state.api.hasError,
     hasSubmittedData: state.api.hasSubmittedData,
     isWaiting: state.api.isWaiting
