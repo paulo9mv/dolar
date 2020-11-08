@@ -5,7 +5,7 @@ Este é um teste para Desenvolvedor Frontend na [Stone Co](https://www.stone.co/
 ## Para executar
 Esse tutorial supõe que você possua o _yarn_ instalado. Caso não tenha, siga as instruções de instalação na [página oficial](https://classic.yarnpkg.com/pt-BR/docs/install/#windows-stable).
 
-1. Para instalar os node_modules
+1. Para instalar os _node\_modules_
 ```
 $ yarn install
 ```
